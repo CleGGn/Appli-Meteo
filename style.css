@@ -1,0 +1,202 @@
+    body {
+        background: rgb(36, 154, 181);
+        background: linear-gradient(90deg, rgba(36, 154, 181, 1) 67%, rgba(255, 255, 255, 1) 100%);
+        font-family: Raleway, sans-serif;
+    }
+    
+    .container {
+        max-width: 375px;
+        color: #333;
+        padding-top: 20px;
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.375);
+        border-radius: 10px;
+        margin: 0 auto;
+        background: url(ressources/gradient.jpg);
+        background-size: cover;
+        position: relative;
+    }
+    
+    h1 {
+        font-family: Raleway, sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        text-align: center;
+    }
+    
+    h1 span {
+        font-weight: bold;
+    }
+    
+    .weather-information {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 10px;
+        margin-bottom: 40px;
+    }
+    
+    .weather-image {
+        transform: scale(1.40);
+        width: 130px;
+        border-radius: 50%;
+    }
+    
+    .bloc-info {
+        text-align: center;
+        margin-top: -40px;
+    }
+    
+    .temperature {
+        font-size: 65px;
+        font-weight: bolder;
+    }
+    
+    .position {
+        font-size: 40px;
+        font-weight: 250;
+        word-break: break-all;
+    }
+    
+    .bottom-content {
+        border-top: 1px solid rgba(51, 51, 51, 0.726);
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding: 30px 20px 20px;
+        background: white;
+    }
+    
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .tabs button {
+        border: 1px solid #c3c3c3;
+        color: #c3c3c3;
+        border-radius: 5px;
+        font-size: 18px min;
+        min-width: 100px;
+        padding: 5px;
+        margin: 0 5px;
+        background: transparent;
+        cursor: pointer;
+    }
+    
+    .tabs button:hover {
+        color: #9d9d9d;
+        border: 1px solid #c7c7c7
+    }
+    
+    .tabs button.active {
+        color: #222;
+        border: 1px solid #b6b6b6
+    }
+    
+    .forecast-content {
+        display: grid;
+    }
+    
+    .forecast {
+        display: none;
+    }
+    
+    .day-forecast,
+    .hour-forecast {
+        grid-area: 1 / 1 / 2 / 2;
+        grid-template-columns: repeat(7, 1fr);
+    }
+    
+    .day-forecast.active,
+    .hour-forecast.active {
+        display: grid;
+    }
+    
+    .forecast-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 15px 0;
+        position: relative;
+    }
+    
+    .forecast-block p {
+        padding: 0 5px;
+    }
+    
+    .forecast-block p:nth-child(2) {
+        margin-top: 10px;
+    }
+    
+    .hour-name,
+    .day-name {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    .hour-temp,
+    .day-temp {
+        font-weight: 400;
+        color: gray;
+    }
+    
+    .forecast-block:not(.forcast-block:last-child)::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 50px;
+        right: 0;
+        background: #d7d7d7
+    }
+    
+    .loader {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        background: #f1f1f1;
+        text-align: center;
+        font-size: 18px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: visibility 0s 0.8s ease-out, opacity 0.4s 0.4s east-out;
+    }
+    
+    .fade-out {
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .dot {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #111;
+        margin: 0 3px;
+        animation: load 0.3s infinite ease-out alternate;
+    }
+    
+    .dot:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+    
+    .dot:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+    
+    @keyframes load {
+        to {
+            transform: translateY(10px);
+        }
+    }
